@@ -42,11 +42,10 @@ func (d *DB) Close() error {
 }
 
 func (d *DB) Setup() error {
-	err := d.db.AutoMigrate(&models.Todo{})
+	err := d.db.AutoMigrate(&models.Todo{}, &models.User{})
 	if err != nil {
 		return err
 	}
-	seed(d.db)
 	return nil
 }
 

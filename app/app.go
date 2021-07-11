@@ -27,4 +27,9 @@ func (a *App) initRoutes() {
 	a.Router.HandleFunc("/api/todo/{id:[0-9]+}", a.UpdateTodoHandler()).Methods("PUT")
 	a.Router.HandleFunc("/api/todo/{id:[0-9]+}", a.GetTodoByIdHandler()).Methods("GET")
 	a.Router.HandleFunc("/api/todo/{id:[0-9]+}", a.DeleteTodoHandler()).Methods("DELETE")
+
+	a.Router.HandleFunc("/api/register", a.RegisterHandler()).Methods("POST")
+	a.Router.HandleFunc("/api/login", a.LoginHandler()).Methods("POST")
+
+	a.Router.HandleFunc("/api/users", a.GetUsersHandler()).Methods("GET")
 }
